@@ -44,6 +44,7 @@ TouchScreen ts = TouchScreen(XP, YP, XM, YM, 300);
 #define Y_MAX  240
 
 Adafruit_GFX_Button coin = Adafruit_GFX_Button();
+Adafruit_GFX_Button apply = Adafruit_GFX_Button();
 SdFat SD;
 
 void setup() {
@@ -126,7 +127,9 @@ void setup() {
   }
  
   coin.initButton(&tft, 120, 280, 100, 50, ILI9341_WHITE, ILI9341_YELLOW, ILI9341_BLACK, "Sound", 2);
+  apply.initButton(&tft, 120, 220, 100, 40, ILI9341_YELLOW, ILI9341_GREEN, ILI9341_BLACK, "Apply", 2);
   coin.drawButton();
+  apply.drawButton();
 
   analogWriteResolution(12);
   analogWrite(A0, 128);
