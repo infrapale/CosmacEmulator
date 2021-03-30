@@ -3,6 +3,8 @@
  * 
  * 
  */
+#ifdef  __REGISTERS__
+#define __REGISTERS__
 
 #define  ROM_SIZE    2^14
 #define  RAM_SIZE    2^12
@@ -25,3 +27,5 @@ typedef struct {
     uint8_t    Q;
     uint8_t    IE;
 } cosmac_register_st;
+
+#endif

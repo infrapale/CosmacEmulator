@@ -1,4 +1,5 @@
 
+#include <stdint.h>
 #include "registers.h"
 
 //cosmac_register_st register;

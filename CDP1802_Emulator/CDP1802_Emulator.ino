@@ -15,6 +15,8 @@
 #include "assembler.h"
 
 void setup() {
+  uint16_t code_addr;
+  
   Serial.begin(115200);
   //while (!Serial);
 
@@ -48,6 +50,12 @@ void setup() {
   }
   Serial.println("Reading QSPI ID");
   Serial.print("JEDEC ID: 0x"); Serial.println(flash.getJEDECID(), HEX);
+
+  for (code_addr = 0; code_addr < 3; code_addr++){
+      Serial.print(test_code[code_addr],HEX);
+      Serial.print(" ");
+      Serial.println("");
+  }
 
 }
 
