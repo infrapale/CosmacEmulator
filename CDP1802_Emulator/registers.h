@@ -3,7 +3,7 @@
  * 
  * 
  */
-#ifdef  __REGISTERS__
+#ifndef  __REGISTERS__
 #define __REGISTERS__
 
 #define  ROM_SIZE    2^14
