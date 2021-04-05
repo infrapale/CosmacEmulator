@@ -12,13 +12,17 @@
 #include "test1.h"
 #include "config.h"
 #include "registers.h"
-#include "assembler.h"
+#include "emulate.h"
+#include "storage.h"
+
+extern uint8_t mem[MEM_SIZE]; 
 
 void setup() {
   uint16_t code_addr;
   
-  Serial.begin(115200);
-  //while (!Serial);
+  Serial.begin(9600);
+  delay(4000);
+  while (!Serial);
 
   Serial.println("All Test!");
 
@@ -51,13 +55,19 @@ void setup() {
   Serial.println("Reading QSPI ID");
   Serial.print("JEDEC ID: 0x"); Serial.println(flash.getJEDECID(), HEX);
 
-  for (code_addr = 0; code_addr < 3; code_addr++){
-      Serial.print(test_code[code_addr],HEX);
+  emulate_initialize();
+  storage_load_direct(test_code, 3, 0x0000);
+  for (code_addr = 0; code_addr < 0; code_addr++){
+      Serial.print(mem[code_addr],HEX);
       Serial.print(" ");
       Serial.println("");
   }
+  emulate_reset_cpu();
+  emulate_run();
 
 }
 
-void loop() {
+void loop() 
+{
+  
 }

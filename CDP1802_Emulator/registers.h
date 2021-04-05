@@ -4,8 +4,9 @@
  * 
  */
 #ifndef  __REGISTERS__
-#define __REGISTERS__
+#define  __REGISTERS__
 
+#define  MEM_SIZE    2^16
 #define  ROM_SIZE    2^14
 #define  RAM_SIZE    2^12
 #define  VRAM_SIZE   2^14
@@ -27,5 +28,7 @@ typedef struct {
     uint8_t    Q;
     uint8_t    IE;
 } cosmac_register_st;
+
+void registers_reset_cpu(void);
 
 #endif
